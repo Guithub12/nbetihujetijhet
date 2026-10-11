@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Miau Chat – Download</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ffeef4;--bg2:#ffd6e6;--ink:#4a1f31;--soft:#8f5670;--red:#e5254a;--deep:#a8173a;--pink:#ff8fb8;--glass:rgba(255,255,255,.62);--edge:rgba(255,255,255,.95);--line:#f7b5cf;--sh:rgba(168,23,58,.22);--script:'Pacifico','Brush Script MT',cursive;--sans:'Nunito','Segoe UI',system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1220;--bg2:#3d1830;--ink:#ffe6f0;--soft:#e9a9c4;--glass:rgba(80,30,55,.62);--edge:rgba(255,160,200,.35);--line:#6b3050;--sh:rgba(0,0,0,.45)}}
+:root[data-theme="dark"]{--bg:#2a1220;--bg2:#3d1830;--ink:#ffe6f0;--soft:#e9a9c4;--glass:rgba(80,30,55,.62);--edge:rgba(255,160,200,.35);--line:#6b3050;--sh:rgba(0,0,0,.45)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;background:var(--bg);
+background-image:radial-gradient(60% 50% at 85% 5%,var(--bg2),transparent 70%),radial-gradient(50% 40% at 0% 40%,var(--bg2),transparent 70%),radial-gradient(45% 40% at 100% 85%,var(--bg2),transparent 70%);background-attachment:fixed}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative}
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--script);font-size:26px;text-decoration:none;color:var(--red)}
+.logo svg{width:42px;height:42px}
+.links{display:flex;gap:26px;align-items:center;font-weight:600}
+.links a{text-decoration:none;color:var(--soft)}
+.links a:hover{color:var(--red)}
+.links .go{background:var(--glass);border:1.5px solid var(--edge);padding:8px 20px;border-radius:30px;color:var(--ink);backdrop-filter:blur(8px);box-shadow:0 4px 14px var(--sh)}
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:30px;align-items:center;padding:30px 0 80px}
+h1{font-family:var(--script);font-weight:400;font-size:clamp(40px,6.2vw,70px);line-height:1.15;margin:0 0 20px;color:var(--red);text-shadow:0 3px 0 #fff,0 8px 20px var(--sh)}
+@media (prefers-color-scheme:dark){h1{text-shadow:0 3px 0 var(--deep),0 8px 20px var(--sh)}}
+.lead{color:var(--soft);font-size:19px;max-width:27em;margin:0 0 28px}
+.btn{position:relative;border:0;font:inherit;font-weight:800;font-size:18px;cursor:pointer;border-radius:40px;padding:15px 32px;color:#fff;background:linear-gradient(#ff5a7d,var(--red) 55%,var(--deep));box-shadow:0 6px 0 #7d0f2a,0 12px 24px var(--sh),inset 0 2px 0 rgba(255,255,255,.55);text-decoration:none;display:inline-block;overflow:hidden}
+.btn::after{content:"";position:absolute;left:8%;right:8%;top:3px;height:42%;border-radius:40px;background:linear-gradient(rgba(255,255,255,.5),rgba(255,255,255,0))}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 #7d0f2a,0 6px 12px var(--sh),inset 0 2px 0 rgba(255,255,255,.55)}
+.btn:focus-visible,.row:focus-visible,.x:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.note{color:var(--soft);font-size:14px;margin-top:16px}
+.stage{position:relative;padding-top:60px}
+.win{background:var(--glass);border:2px solid var(--edge);border-radius:26px;backdrop-filter:blur(14px);box-shadow:0 30px 60px var(--sh),inset 0 1px 0 var(--edge);overflow:hidden;transform:rotate(-2deg)}
+.bar{display:flex;gap:7px;padding:12px 16px;border-bottom:1.5px solid var(--edge)}
+.bar i{width:12px;height:12px;border-radius:50%;background:var(--pink)}
+.bar i:nth-child(2){background:#ffc2a8}.bar i:nth-child(3){background:#fff}
+.body{display:grid;grid-template-columns:56px 1fr}
+.rail{padding:12px 0;display:flex;flex-direction:column;gap:9px;align-items:center;border-right:1.5px solid var(--edge)}
+.rail b{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#fff,var(--pink));border:2px solid #fff}
+.rail b:first-child{background:var(--red)}
+.chat{padding:16px;display:flex;flex-direction:column;gap:11px;min-height:240px}
+.msg{max-width:80%;padding:9px 14px;border-radius:6px 18px 18px 18px;background:#fff;color:#4a1f31;font-size:15px;box-shadow:0 3px 8px rgba(168,23,58,.12)}
+.msg small{display:block;font-weight:800;color:var(--red);font-size:12.5px}
+.msg.me{align-self:flex-end;border-radius:18px 6px 18px 18px;background:linear-gradient(135deg,#ffc0d8,#ff9fc4)}
+.mascot{position:absolute;top:-4px;right:46px;width:112px;z-index:2;transform:rotate(6deg);filter:drop-shadow(0 8px 10px var(--sh))}
+.spark{position:absolute;color:var(--pink);pointer-events:none}
+/* download */
+.sec{padding:50px 0}
+h2{font-family:var(--script);font-weight:400;font-size:clamp(30px,4.4vw,46px);color:var(--red);margin:0 0 10px;line-height:1.2}
+.sub{color:var(--soft);max-width:34em;margin:0 0 34px}
+.dgrid{display:grid;grid-template-columns:1.25fr 1fr;gap:26px;align-items:stretch}
+.feature{border-radius:34px;padding:38px;color:#fff;background:linear-gradient(150deg,#ff7a9e,var(--red) 45%,var(--deep));box-shadow:0 22px 44px var(--sh),inset 0 2px 0 rgba(255,255,255,.4);position:relative;overflow:hidden}
+.feature h3{margin:0 0 6px;font-size:30px;font-weight:800}
+.feature p{margin:0 0 24px;opacity:.92;max-width:24em}
+.feature .btn{background:#fff;color:var(--deep);box-shadow:0 6px 0 rgba(0,0,0,.18)}
+.feature .btn::after{display:none}
+.feature ul{list-style:none;padding:0;margin:26px 0 0;display:flex;gap:18px;flex-wrap:wrap;font-size:14px;opacity:.9}
+.bigbow{position:absolute;right:-30px;bottom:-30px;width:210px;opacity:.22}
+.list{display:flex;flex-direction:column;border-radius:30px;background:var(--glass);border:2px solid var(--edge);backdrop-filter:blur(10px);box-shadow:0 14px 34px var(--sh);overflow:hidden}
+.row{display:flex;align-items:center;gap:16px;padding:20px 24px;border:0;background:none;font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%}
+.row+.row{border-top:1.5px dashed var(--line)}
+.row:hover{background:rgba(255,143,184,.16)}
+.row svg{width:30px;height:30px;flex:none;color:var(--soft)}
+.row b{font-size:18px;display:block;line-height:1.2}
+.row span{font-size:14px;color:var(--soft)}
+.row em{margin-left:auto;font-style:normal;font-weight:800;font-size:13.5px;color:var(--deep);background:#ffe0ea;padding:5px 14px;border-radius:20px;white-space:nowrap}
+@media (prefers-color-scheme:dark){.row em{background:#5a2342;color:#ffd0e2}}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.cell{background:var(--glass);border:2px solid var(--edge);border-radius:28px;padding:28px;backdrop-filter:blur(8px);box-shadow:0 10px 26px var(--sh)}
+.cell h3{margin:0 0 6px;font-size:21px;font-weight:800}
+.cell p{margin:0;color:var(--soft)}
+.c1{grid-column:span 4;border-radius:44px 28px 28px 28px;background:linear-gradient(135deg,var(--glass),rgba(255,143,184,.3))}
+.c2{grid-column:span 2}.c3{grid-column:span 2}.c4{grid-column:span 4;border-radius:28px 44px 28px 28px}
+footer{text-align:center;color:var(--soft);font-size:14px;padding:50px 0 40px}
+footer span{font-family:var(--script);color:var(--red);font-size:18px}
+/* coming soon page */
+#soon{position:fixed;inset:0;z-index:20;display:none;place-items:center;padding:24px;background:rgba(74,31,49,.55);backdrop-filter:blur(8px)}
+#soon.on{display:grid}
+.sheet{width:min(460px,100%);background:var(--bg);border:3px solid var(--edge);border-radius:38px;padding:36px 30px 30px;text-align:center;box-shadow:0 30px 70px rgba(0,0,0,.35);position:relative}
+.sheet svg.cat{width:96px;margin:-84px auto 8px;display:block;filter:drop-shadow(0 8px 8px var(--sh))}
+.sheet h2{margin:0 0 6px}
+.sheet p{color:var(--soft);margin:0 0 20px}
+.sheet input{width:100%;border:2px solid var(--line);background:var(--glass);color:var(--ink);font:inherit;border-radius:30px;padding:13px 20px;margin-bottom:14px}
+.sheet input:focus{outline:3px solid var(--red);outline-offset:1px}
+.x{position:absolute;right:16px;top:14px;border:0;background:none;font-size:26px;color:var(--soft);cursor:pointer;line-height:1}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140px);background:var(--ink);color:var(--bg);padding:12px 24px;border-radius:30px;transition:transform .35s;z-index:30;max-width:90%;text-align:center;font-weight:600}
+#toast.on{transform:translate(-50%,0)}
+@media (max-width:860px){.hero,.dgrid{grid-template-columns:1fr}.links a:not(.go){display:none}.c1,.c4{grid-column:span 6}.c2,.c3{grid-column:span 3}.win{transform:none}}
+@media (max-width:520px){.c2,.c3{grid-column:span 6}.feature{padding:28px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="cat" viewBox="0 0 64 64"><path d="M10 26 12 6l16 10zM54 26 52 6 36 16z" fill="#fff" stroke="#4a1f31" stroke-width="3" stroke-linejoin="round"/><ellipse cx="32" cy="38" rx="25" ry="20" fill="#fff" stroke="#4a1f31" stroke-width="3"/><circle cx="21" cy="37" r="3" fill="#4a1f31"/><circle cx="43" cy="37" r="3" fill="#4a1f31"/><ellipse cx="32" cy="43" rx="3.5" ry="2.5" fill="#ffc83d" stroke="#4a1f31" stroke-width="1.5"/><path d="M4 36h9M4 44l9-3M60 36h-9M60 44l-9-3" stroke="#4a1f31" stroke-width="2.5" stroke-linecap="round"/><g transform="translate(46 12)"><path d="M0 0 12-7v14zM0 0-12-7v14z" fill="#e5254a" stroke="#4a1f31" stroke-width="2.5" stroke-linejoin="round"/><circle r="4" fill="#ff8fb8" stroke="#4a1f31" stroke-width="2"/></g></symbol>
+<symbol id="star" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12C7 11 11 7 12 0z" fill="currentColor"/></symbol>
+<symbol id="bow" viewBox="0 0 100 60"><path d="M50 30 8 6v48zM50 30 92 6v48z" fill="#fff"/><circle cx="50" cy="30" r="10" fill="#fff"/></symbol>
+</defs></svg>
+
+<div class="wrap">
+<nav>
+  <a class="logo" href="#"><svg><use href="#cat"/></svg>Miau Chat</a>
+  <div class="links"><a href="#features">Features</a><a href="#download" class="go">Download</a></div>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1>Where your favorite people hang out</h1>
+    <p class="lead">Voice rooms, cozy servers and endless stickers. A chat app that feels like a pastel sticker book, free on Windows today.</p>
+    <button class="btn" id="mainBtn">Download for Windows</button>
+    <p class="note">Version 1.0 · Windows 10 or newer · 84 MB</p>
+  </div>
+  <div class="stage" aria-hidden="true">
+    <svg class="spark" style="left:2%;top:30px;width:26px"><use href="#star"/></svg>
+    <svg class="spark" style="right:0;top:200px;width:20px"><use href="#star"/></svg>
+    <svg class="spark" style="left:-8px;bottom:30px;width:16px"><use href="#star"/></svg>
+    <svg class="mascot"><use href="#cat"/></svg>
+    <div class="win">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="body">
+        <div class="rail"><b></b><b></b><b></b><b></b></div>
+        <div class="chat">
+          <div class="msg"><small>Sakura</small>Movie night in the voice room?</div>
+          <div class="msg me"><small>Mimi</small>Yes! I'm bringing snacks</div>
+          <div class="msg"><small>Momo</small>Save me a seat</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="download">
+  <h2>Take it with you</h2>
+  <p class="sub">The Windows app is ready now. Every other platform is on its way.</p>
+  <div class="dgrid">
+    <div class="feature">
+      <svg class="bigbow" viewBox="0 0 100 60"><use href="#bow"/></svg>
+      <h3>Miau Chat for Windows</h3>
+      <p>Installs in under a minute and keeps your servers, friends and stickers in sync.</p>
+      <button class="btn" id="winBtn">Download now</button>
+      <ul><li>Version 1.0</li><li>Windows 10 or newer</li><li>84 MB</li></ul>
+    </div>
+    <div class="list" id="list"></div>
+  </div>
+</section>
+
+<section class="sec" id="features">
+  <h2>Little things, done sweetly</h2>
+  <p class="sub">Everything you expect from a modern chat app, dressed up.</p>
+  <div class="bento">
+    <div class="cell c1"><h3>Servers for every crowd</h3><p>Start a clubhouse for your friends, your class or your fan club. Text and voice channels keep every topic in its own corner.</p></div>
+    <div class="cell c2"><h3>Clear voice</h3><p>Join a room with one click.</p></div>
+    <div class="cell c3"><h3>Sticker shelf</h3><p>Hearts, bows and sparkles, plus your own.</p></div>
+    <div class="cell c4"><h3>Kind by design</h3><p>Private servers, simple moderation and block tools make it easy to keep your space friendly.</p></div>
+  </div>
+</section>
+
+<footer><span>Miau Chat</span><br>Made with love · This is a demo page, the download link is still a placeholder.</footer>
+</div>
+
+<div id="soon" role="dialog" aria-modal="true" aria-labelledby="st">
+  <div class="sheet">
+    <button class="x" id="close" aria-label="Close">×</button>
+    <svg class="cat" viewBox="0 0 64 64"><use href="#cat"/></svg>
+    <h2 id="st">Coming soon...</h2>
+    <p id="sp"></p>
+    <input id="mail" type="email" placeholder="your@email.com" aria-label="Email">
+    <button class="btn" id="notify">Tell me when it's ready</button>
+  </div>
+</div>
+<div id="toast" role="status"></div>
+
+<script>
+const ic={
+ mac:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="26" height="17" rx="3"/><path d="M11 27h10M16 22v5"/></svg>',
+ linux:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 8 4 8M24 8l4 8-4 8M18 6l-4 20"/></svg>',
+ ios:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="14" height="26" rx="4"/><path d="M14 25h4"/></svg>',
+ and:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="20" height="26" rx="4"/><circle cx="16" cy="24" r="1.2" fill="currentColor"/></svg>'};
+const P=[['macOS','Apple silicon and Intel',ic.mac],['Linux','.deb and .tar.gz',ic.linux],['iPhone & iPad','App Store',ic.ios],['Android','Google Play',ic.and]];
+const $=id=>document.getElementById(id);
+const L=$('list');
+P.forEach(p=>{const b=document.createElement('button');b.className='row';
+ b.innerHTML=p[2]+'<div><b></b><span></span></div><em>Coming soon...</em>';
+ b.querySelector('b').textContent=p[0];b.querySelector('span').textContent=p[1];
+ b.onclick=()=>{$('sp').textContent='Miau Chat for '+p[0]+' is still being baked. Leave your email and we will let you know when it is out.';$('soon').classList.add('on');$('mail').focus()};
+ L.appendChild(b)});
+const T=$('toast');let tm;
+function toast(m){T.textContent=m;T.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>T.classList.remove('on'),2800)}
+/* Put the raw link to your installer here, e.g. a raw.githubusercontent.com URL */
+const DOWNLOAD_URL='https://github.com/Guithub12/nbetihujetijhet/releases/download/rwhwrh/Meow-Installer.exe';
+const dl=()=>{
+ if(DOWNLOAD_URL.includes('YOUR-USERNAME')){toast('Placeholder link: set DOWNLOAD_URL in the page code.');return}
+ toast('Your download is starting...');
+ const a=document.createElement('a');a.href=DOWNLOAD_URL;a.download='MiauChat-Setup.exe';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()};
+$('mainBtn').onclick=dl;$('winBtn').onclick=dl;
+const shut=()=>$('soon').classList.remove('on');
+$('close').onclick=shut;
+$('soon').addEventListener('click',e=>{if(e.target.id==='soon')shut()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')shut()});
+$('notify').onclick=()=>{const v=$('mail').value.trim();if(!/^\S+@\S+\.\S+$/.test(v)){toast('Please enter a valid email address.');return}shut();$('mail').value='';toast('Thank you! We will email you when it is ready.')};
+</script>
+</body>
+</html>
